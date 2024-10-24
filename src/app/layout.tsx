@@ -1,6 +1,8 @@
-import React, { CSSProperties } from 'react'
+import { CSSProperties } from 'react'
 import type { Metadata } from 'next'
+import Header from '@/components/header/header'
 import { Oswald, Montserrat } from 'next/font/google'
+import './global.scss'
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -34,6 +36,7 @@ export default function RootLayout({
           } as CustomCSSProperties
         }
       >
+        <Header />
         {children}
       </body>
     </html>
