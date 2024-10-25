@@ -1,3 +1,6 @@
+$xlarge-icon-width: 41px;
+$xlarge-icon-height: 41px;
+
 $large-icon-width: 24px;
 $large-icon-height: 24px;
 
@@ -20,4 +23,14 @@ $small-icon-height: 16px;
 .search-icon {
   width: $large-icon-width;
   height: $large-icon-height;
+}
+
+.same-day-pay-icon {
+  width: $xlarge-icon-width;
+  height: $xlarge-icon-height;
+}
+
+.fave-heart-icon {
+  width: 17px;
+  height: 17px;
 }

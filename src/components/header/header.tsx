@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import Logo from '@/components/logo/logo'
 import { HamburgerIcon, HeartIcon, CartIcon } from '@/components/icons/'
 import SearchForm from './search-form'
@@ -17,7 +18,9 @@ export default function Header() {
           </ul>
         </nav>
         <div className={styles['site-header__logo']}>
-          <Logo />
+          <Link href="/">
+            <Logo />
+          </Link>
         </div>
         <nav className={styles['site-header__right-menu']}>
           <ul>
