@@ -1,4 +1,7 @@
 import Logo from '@/components/logo/logo'
+import { HamburgerIcon, HeartIcon, CartIcon } from '@/components/icons/'
+import SearchForm from './search-form'
+import MainMenu from './main-menu'
 import styles from './header.module.scss'
 
 export default function Header() {
@@ -7,7 +10,9 @@ export default function Header() {
       <div className={styles['site-header__logo-banner']}>
         <nav className={styles['site-header__left-menu']}>
           <ul>
-            <li>M</li>
+            <li>
+              <HamburgerIcon />
+            </li>
             <li></li>
           </ul>
         </nav>
@@ -16,13 +21,21 @@ export default function Header() {
         </div>
         <nav className={styles['site-header__right-menu']}>
           <ul>
-            <li>H</li>
-            <li>B</li>
+            <li>
+              <HeartIcon />
+            </li>
+            <li>
+              <CartIcon />
+            </li>
           </ul>
         </nav>
       </div>
-      <div id="search-form"></div>
-      <div id="main-menu"></div>
+      <div className={styles['site-header__search-form']}>
+        <SearchForm />
+      </div>
+      <div className={styles['site-header__main-menu']}>
+        <MainMenu />
+      </div>
     </header>
   )
 }

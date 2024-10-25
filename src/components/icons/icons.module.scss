@@ -1,0 +1,23 @@
+$large-icon-width: 24px;
+$large-icon-height: 24px;
+
+$medium-icon-width: 20px;
+$medium-icon-height: 20px;
+
+$small-icon-width: 16px;
+$small-icon-height: 16px;
+
+.header-icon {
+  width: $medium-icon-width;
+  height: $medium-icon-height;
+}
+
+.menu-icon {
+  width: $small-icon-width;
+  height: $small-icon-height;
+}
+
+.search-icon {
+  width: $large-icon-width;
+  height: $large-icon-height;
+}
