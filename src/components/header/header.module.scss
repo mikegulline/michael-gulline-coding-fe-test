@@ -1,9 +1,31 @@
-.logo-banner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+.site-header {
+  background-color: #000;
+  color: #fff;
 
-.left-menu {
-  display: flex;
+  &__logo-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 62px;
+    padding: 20px 40px;
+  }
+
+  &__left-menu {
+    & ul {
+      display: flex;
+    }
+  }
+
+  &__right-menu {
+    & ul {
+      display: flex;
+    }
+  }
+
+  &__logo {
+    width: 185px;
+    & img {
+      width: 100%;
+    }
+  }
 }
