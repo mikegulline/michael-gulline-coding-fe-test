@@ -17,7 +17,7 @@ interface CustomCSSProperties extends CSSProperties {
 }
 
 export const metadata: Metadata = {
-  title: 'videoshops',
+  title: 'Videoshops',
   description: 'Search by Brand, Product, or Category',
 }
 

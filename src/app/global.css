@@ -4,6 +4,10 @@
   font-family: 'PP Acma', sans-serif;
 }
 
+body {
+  overflow-y: scroll;
+}
+
 *,
 *::before,
 *::after {

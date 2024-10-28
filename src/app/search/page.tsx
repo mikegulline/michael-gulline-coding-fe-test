@@ -1,15 +1,34 @@
+import type { Metadata } from 'next'
 import BreadCrumbs from '@/components/bread-crumbs/bread-crumbs'
-import SearchFilters from './search-filters'
-import fetchAPI from './fetch-api'
+import SearchResultsHeader from '@/components/search-results-header/search-results-header'
+import SearchResults from './assets/search-results'
+import fetchAPI from './assets/fetch-api'
+import productsMap from './assets/products-map'
 import styles from './page.module.scss'
 
-const links = [
+export async function generateMetadata({
+  searchParams,
+}: SearchPageProps): Promise<Metadata> {
+  let results: ApiResponse
+
+  try {
+    results = await fetchAPI({ searchParams })
+  } catch (error: any) {
+    return {
+      title: `Error fetching search results`,
+    }
+  }
+  return {
+    title: `${results.meta.totalHits} Search results for: ${searchParams.query}`,
+  }
+}
+
+const breadCrumbLinks = [
   { url: '/', title: 'Home' },
   { url: '/', title: 'Skin Care' },
 ]
 
 export default async function SearchPage({ searchParams }: SearchPageProps) {
-  const query = searchParams.query
   let results: ApiResponse
 
   try {
@@ -17,22 +36,21 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
   } catch (error: any) {
     return <p>Error fetching data: {error.message}</p>
   }
-  const { meta, hits, facets, priceRange, products, merchants, users } = results
+  const { meta, products, merchants } = results
+
+  const productsMapped = productsMap(products, merchants)
 
   return (
     <main className={styles['search-page']} key={JSON.stringify(searchParams)}>
-      <BreadCrumbs links={links} />
-
-      {/* <pre>
-        <code>{JSON.stringify(results, null, 2)}</code>
-      </pre> */}
-
-      <SearchFilters
-        products={products}
-        meta={meta}
-        merchants={merchants}
+      <BreadCrumbs links={breadCrumbLinks} />
+      <SearchResultsHeader searchParams={searchParams} />
+      <div className={styles['search-page__results-count']}>
+        {meta.totalHits} Results
+      </div>
+      <SearchResults
         searchParams={searchParams}
-        query={query}
+        products={productsMapped}
+        meta={meta}
       />
     </main>
   )

@@ -1,7 +1,7 @@
 'use client'
 import { useRouter } from 'next/navigation'
-import { useRef } from 'react'
-import { MouseEvent } from 'react'
+import { useRef, MouseEvent } from 'react'
+import paramsToQueryString from '@/app/search/assets/params-to-query-string'
 import Link from 'next/link'
 import { SortIcon } from '../icons'
 import styles from './search-results-header.module.scss'
@@ -57,18 +57,8 @@ export default function SearchResultsHeader({
             <li key={key}>
               <button
                 onClick={() => {
-                  const newParams = { ...searchParams }
-                  newParams['sortBy'] = key as sortBy
-                  const cleanedParams = Object.fromEntries(
-                    Object.entries(newParams)
-                      .filter(
-                        ([_, value]) => value !== undefined && value !== null
-                      )
-                      .map(([key, value]) => [key, String(value)]) // Convert each value to a string
-                  )
-                  const queryString = new URLSearchParams(
-                    cleanedParams
-                  ).toString()
+                  const newParams = { query: searchParams.query, sortBy: key }
+                  const queryString = paramsToQueryString(newParams)
                   router.push(`/search?${queryString}`)
                 }}
                 className={key === selected ? styles['selected'] : ''}

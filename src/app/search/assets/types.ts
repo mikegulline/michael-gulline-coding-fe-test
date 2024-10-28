@@ -34,12 +34,10 @@ type Merchant = {
   images: Array<{ url: string }>
 }
 
-type SearchFilters = {
+type SearchResults = {
   searchParams: SearchParams
-  query: string
-  products: Array<Product>
+  products: Array<FilteredProduct>
   meta: Meta
-  merchants: Array<Merchant>
 }
 
 type FilteredProduct = {
@@ -99,4 +97,11 @@ type SearchParams = {
 
 interface SearchPageProps {
   searchParams: SearchParams
+}
+
+type SearchHeader = {
+  title: string
+  start: number
+  end: number
+  count: number
 }
