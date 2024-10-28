@@ -1,8 +1,9 @@
 import { CSSProperties } from 'react'
 import type { Metadata } from 'next'
 import Header from '@/components/header/header'
+import Footer from '@/components/footer/footer'
 import { Oswald, Montserrat } from 'next/font/google'
-import './global.scss'
+import './global.css'
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -38,6 +39,7 @@ export default function RootLayout({
       >
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   )

@@ -1,6 +1,6 @@
 'use client'
 import { useRouter } from 'next/navigation'
-import { FormEvent, useState, useRef } from 'react'
+import { FormEvent, useState } from 'react'
 import { SearchIcon } from '@/components/icons'
 import styles from './header.module.scss'
 

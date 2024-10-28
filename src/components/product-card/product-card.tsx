@@ -1,6 +1,12 @@
+'use client'
+import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { SameDayPayIcon, FaveHeartIcon } from '@/components/icons'
+import {
+  SameDayPayIcon,
+  FaveHeartIcon,
+  FaveHeartIconHover,
+} from '@/components/icons'
 import styles from './procuct-card.module.scss'
 
 export type ProductCard = {
@@ -35,9 +41,7 @@ export default function ProductCard({
         <div className={styles['product-card__image-wrapper']}>
           <Image src={image} alt={title} width={162} height={160} />
           <div className={styles['product-card__image-wrapper__fave-heart']}>
-            <Link href="#">
-              <FaveHeartIcon />
-            </Link>
+            <HeartButton />
           </div>
           {commissionRate && (
             <div
@@ -78,5 +82,21 @@ export default function ProductCard({
         </div>
       </div>
     </li>
+  )
+}
+
+const HeartButton = () => {
+  const [hover, setHover] = useState(false)
+  const [selected, setSelected] = useState(false)
+
+  return (
+    <Link
+      href="#"
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+      onClick={() => setSelected(!selected)}
+    >
+      {hover || selected ? <FaveHeartIconHover /> : <FaveHeartIcon />}
+    </Link>
   )
 }

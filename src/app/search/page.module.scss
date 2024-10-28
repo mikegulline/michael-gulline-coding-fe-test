@@ -1,11 +1,25 @@
 .search-page {
   max-width: 1440px;
-  padding: 20px 70px 0px 70px;
   margin: auto;
+
+  &__results-count {
+    line-height: 16px;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 0 70px;
+  }
 
   &__body {
     display: flex;
     gap: 57px;
+    padding: 20px 70px 0px 70px;
+
+    &-footer {
+      display: flex;
+      gap: 4px;
+      justify-content: center;
+      align-items: center;
+    }
 
     &-load-more {
       height: 48px;
@@ -21,7 +35,7 @@
       font-weight: 600;
       letter-spacing: -0.02em;
       width: 149px;
-      margin: auto;
+
       text-decoration: none;
     }
 

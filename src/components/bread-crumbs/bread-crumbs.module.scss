@@ -1,0 +1,27 @@
+.bread-crumbs {
+  height: 64px;
+  padding: 0 50px;
+  display: flex;
+  align-items: center;
+  max-width: 1440px;
+  margin: auto;
+  color: #999;
+  & ol {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    & li > span {
+      padding: 0 5px;
+    }
+  }
+  & a {
+    line-height: 16px;
+    font-weight: 500;
+    font-size: 13px;
+    color: #999;
+    text-decoration: none;
+  }
+  .last {
+    color: #000;
+  }
+}
