@@ -1,5 +1,5 @@
 import { CSSProperties } from 'react'
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import Header from '@/components/header/header'
 import Footer from '@/components/footer/footer'
 import { Oswald, Montserrat, Roboto_Mono } from 'next/font/google'
@@ -21,6 +21,10 @@ interface CustomCSSProperties extends CSSProperties {
 export const metadata: Metadata = {
   title: 'Videoshops',
   description: 'Search by Brand, Product, or Category',
+}
+
+export const viewport: Viewport = {
+  themeColor: 'black',
 }
 
 export default function RootLayout({
