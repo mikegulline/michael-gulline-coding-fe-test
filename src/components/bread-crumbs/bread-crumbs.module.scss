@@ -6,6 +6,9 @@
   max-width: 1440px;
   margin: auto;
   color: #999;
+  line-height: 20px;
+  font-size: 13px;
+
   & ol {
     display: flex;
     justify-content: flex-start;
@@ -14,10 +17,10 @@
       padding: 0 5px;
     }
   }
+
   & a {
-    line-height: 16px;
+    line-height: 20px;
     font-weight: 500;
-    font-size: 13px;
     color: #999;
     text-decoration: none;
   }

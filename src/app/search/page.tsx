@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
 import BreadCrumbs from '@/components/bread-crumbs/bread-crumbs'
-import SearchResultsHeader from '@/components/search-results-header/search-results-header'
-import SearchResults from './assets/search-results'
-import fetchAPI from './assets/fetch-api'
-import productsMap from './assets/products-map'
+import SearchSortProducts from './components/search-sort-porducts'
+import SearchResultsProducts from './components/search-results-products'
+import fetchAPI from './utils/fetch-api'
+import productsMap from './utils/products-map'
 import styles from './page.module.scss'
 
 export async function generateMetadata({
@@ -36,22 +36,33 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
   } catch (error: any) {
     return <p>Error fetching data: {error.message}</p>
   }
-  const { meta, products, merchants } = results
 
-  const productsMapped = productsMap(products, merchants)
+  const productsMapped = productsMap(results.products, results.merchants)
 
   return (
-    <main className={styles['search-page']} key={JSON.stringify(searchParams)}>
+    <main className={styles['search']} key={JSON.stringify(searchParams)}>
       <BreadCrumbs links={breadCrumbLinks} />
-      <SearchResultsHeader searchParams={searchParams} />
-      <div className={styles['search-page__results-count']}>
-        {meta.totalHits} Results
+      <header className={styles['search__header']}>
+        <h1 className="font-pp-acma">&ldquo;{searchParams?.query}&rdquo;</h1>
+        <SearchSortProducts searchParams={searchParams} />
+      </header>
+      <div className={styles['search__count']}>
+        {results.meta.totalHits} Results
       </div>
-      <SearchResults
-        searchParams={searchParams}
-        products={productsMapped}
-        meta={meta}
-      />
+      <div className={styles['search__body']}>
+        <aside className={styles['search__body__aside']}>
+          The sort works but I need more time for the filters! Love to chat
+          about all the things I didn't get to… Like the Sellers, Brands,
+          Products on the home page, Global store for favorites and the like 😎
+        </aside>
+        <section className={styles['search__body__section']}>
+          <SearchResultsProducts
+            searchParams={searchParams}
+            products={productsMapped}
+            meta={results.meta}
+          />
+        </section>
+      </div>
     </main>
   )
 }

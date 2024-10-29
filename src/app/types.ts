@@ -34,7 +34,7 @@ type Merchant = {
   images: Array<{ url: string }>
 }
 
-type SearchResults = {
+type SearchResultsProducts = {
   searchParams: SearchParams
   products: Array<FilteredProduct>
   meta: Meta
@@ -51,8 +51,6 @@ type FilteredProduct = {
   productId: string
   options: Array<Option>
 }
-
-type FilteredProducts = Array<FilteredProduct>
 
 type Meta = {
   totalHits: number
@@ -97,11 +95,4 @@ type SearchParams = {
 
 interface SearchPageProps {
   searchParams: SearchParams
-}
-
-type SearchHeader = {
-  title: string
-  start: number
-  end: number
-  count: number
 }

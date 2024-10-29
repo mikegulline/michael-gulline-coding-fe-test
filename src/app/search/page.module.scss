@@ -1,8 +1,25 @@
-.search-page {
+.search {
   max-width: 1440px;
   margin: auto;
 
-  &__results-count {
+  &__header {
+    max-width: 1440px;
+    padding: 0 66px;
+    height: 76px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & h1 {
+      line-height: 76px;
+      font-weight: 600;
+      font-size: 36px;
+      letter-spacing: -0.05em;
+      text-transform: capitalize;
+    }
+  }
+
+  &__count {
     line-height: 16px;
     font-size: 13px;
     font-weight: 500;
@@ -14,48 +31,142 @@
     gap: 57px;
     padding: 20px 70px 0px 70px;
 
-    &-footer {
-      display: flex;
-      gap: 4px;
-      justify-content: center;
-      align-items: center;
-    }
-
-    &-load-more {
-      height: 48px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      border-radius: 4px;
-      background-color: #fff;
-      color: #000;
-      line-height: 26px;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      width: 149px;
-
-      text-decoration: none;
-    }
-
-    &-aside {
+    &__aside {
+      padding-top: 16px;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
       width: 304px;
+      line-height: 24px;
     }
 
-    &-section {
+    &__section {
       width: 939px;
 
-      &__more-wrapper {
+      &__article {
         display: flex;
         flex-direction: column;
         gap: 40px;
+
+        &-wrapper {
+          display: flex;
+          flex-direction: column;
+          gap: 30px;
+        }
       }
 
-      &__results-wrapper {
+      & header {
         display: flex;
-        flex-direction: column;
-        gap: 30px;
+        justify-content: space-between;
+        align-items: center;
+        height: 30px;
+
+        & h3 {
+          font-weight: 600;
+          font-size: 22px;
+          letter-spacing: -0.01em;
+        }
+        & span {
+          font-size: 15px;
+          font-weight: 600;
+          letter-spacing: -0.01em;
+        }
+      }
+
+      & footer {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+
+        & button {
+          height: 48px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border: 1px solid rgba(0, 0, 0, 0.1);
+          border-radius: 4px;
+          background-color: #fff;
+          color: #000;
+          line-height: 26px;
+          font-size: 13px;
+          font-weight: 600;
+          letter-spacing: -0.02em;
+          width: 149px;
+          cursor: pointer;
+          text-decoration: none;
+          &:hover {
+            background-color: #fafafa;
+          }
+        }
+      }
+    }
+  }
+}
+
+.sort-dropdown {
+  width: 122px;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding-bottom: 4px;
+
+  & > button {
+    width: 122px;
+    height: 60px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: black;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 26px;
+    background: #fff;
+    &:hover {
+      background-color: #fafafa;
+    }
+  }
+
+  & ul {
+    display: none;
+    width: 122px;
+    position: absolute;
+    z-index: 10;
+    padding: 4px;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    top: 60px;
+    &.show {
+      display: block;
+    }
+
+    & button {
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      color: #000;
+      background-color: #fff;
+      border-radius: 4px;
+      width: 100%;
+      height: 40px;
+      margin-bottom: 1px;
+      cursor: pointer;
+      &:hover {
+        background-color: #fafafa;
+      }
+
+      &.selected {
+        background-color: black;
+        color: white;
+        border: 1px solid #000;
+
+        &:hover {
+          background-color: #222;
+        }
       }
     }
   }

@@ -3,4 +3,54 @@
   padding: 80px 0;
   background-color: #000;
   color: #fff;
+
+  & .wrapper {
+    max-width: 1264px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+
+    & .logo-social {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      & ul {
+        display: flex;
+        gap: 8px;
+      }
+    }
+
+    & .menus {
+      display: flex;
+      justify-content: flex-start;
+      gap: 56px;
+
+      & p {
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 24px;
+        margin-bottom: 10px;
+      }
+      & ul li {
+        font-size: 14px;
+        line-height: 24px;
+        color: #bbb;
+        font-weight: 400;
+      }
+    }
+
+    & .copy-privacy {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      line-height: 12px;
+
+      & ul {
+        display: flex;
+        gap: 24px;
+      }
+    }
+  }
 }

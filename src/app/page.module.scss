@@ -1,0 +1,112 @@
+.home {
+  max-width: 1440px;
+  margin: auto;
+
+  & .banners {
+    & ul {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  & .trending {
+    padding-top: 70px;
+
+    & p {
+      text-align: center;
+      padding-top: 40px;
+    }
+  }
+
+  & .get-paid-same-day {
+    padding-top: 70px;
+    & .banner {
+      height: 390px;
+      background: #000;
+      & img {
+        display: block;
+      }
+    }
+  }
+
+  & .what-you-love {
+    padding-top: 70px;
+    text-align: center;
+
+    & > span {
+      font-size: 18px;
+      line-height: 46px;
+      letter-spacing: 0.25em;
+      font-weight: 500;
+      margin: auto;
+    }
+
+    & ul {
+      margin-top: 40px;
+      display: flex;
+      flex-wrap: wrap;
+      & img {
+        display: block;
+      }
+    }
+  }
+
+  & .what-we-love {
+    padding-top: 20px;
+
+    & ul {
+      display: flex;
+      gap: 20px;
+
+      & li {
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+        align-items: center;
+
+        & > div {
+          display: flex;
+          flex-direction: column;
+          gap: 30px;
+          align-items: center;
+          & h3 {
+            font-size: 35px;
+            line-height: 38px;
+            width: 568px;
+            height: 76px;
+            text-align: center;
+            font-weight: 600;
+            text-transform: uppercase;
+            text-wrap: balance;
+          }
+        }
+
+        & .view-link {
+          width: 158px;
+          height: 34px;
+          border: 1px solid #000;
+          font-size: 15px;
+          font-weight: 400;
+          color: black;
+          text-decoration: none;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-family: var(--roboto-mono);
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+
+  & h2 {
+    font-family: var(--oswald-font);
+    font-size: 76px;
+    line-height: 76px;
+    letter-spacing: -0.05em;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+  }
+}
